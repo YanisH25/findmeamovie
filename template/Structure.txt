@@ -1,0 +1,6 @@
+Header :
+	- The name of the website : "Findmeamovie"
+	- Popcorn and cinema stuffs as illustrations
+	- A catchphrase : "Don't struggle to find a movie, just let us find it!"
+	- A button that lead to the search section
+
