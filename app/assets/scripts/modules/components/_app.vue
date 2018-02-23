@@ -1,6 +1,6 @@
 <template>
     <body>
-        <header-component :callback="doQueryMovies"></header-component>
+        <header-component :callback="callback(value)"></header-component>
         <loader-component v-if="status.loader"></loader-component>
         <notfound-component v-if="status.notfound"></notfound-component>
         <error-component v-if="status.error"></error-component>
@@ -35,13 +35,10 @@ export default {
       'notfound-component': notfound,
       'error-component': error
   },
-  methods:{
-      doQueryMovies(query){
-          this.addMovie({title:query})
-      },
-      addMovie(movie){
-          this.movies.push(movie);
-      }          
+  methods:{       
+      callback(value){
+          /* Handle input submiting... */
+      }
   }
 }
 </script>
