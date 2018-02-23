@@ -59,6 +59,6 @@ typings/
 
 # Build folder
 .cache/
-./dist/
+dist/
 
 
