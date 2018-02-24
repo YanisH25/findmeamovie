@@ -1,0 +1,24 @@
+/* Input Styling */
+
+/* Input Rules */
+.input{ 
+    display: block;
+    margin: 0 auto;
+    height: 30px;
+    width: 55vw;
+    text-align: center;
+    border-radius: 8px;
+    padding: 0 3px;
+    border: 1.5px solid #E7E7E7;
+    font-weight: 400;
+    &:focus{
+        outline: none;
+        border-color: #91AAB4;
+        &:hover{
+            border-color: #91AAB4;
+        }
+    }
+    &:hover{
+        border-color: #CBDBD7;
+    }
+}
