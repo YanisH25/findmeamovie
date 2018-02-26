@@ -1,0 +1,14 @@
+/* Grid Styling */
+
+/* Grid Rules */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    @include Medium{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include Large{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

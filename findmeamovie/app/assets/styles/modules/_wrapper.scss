@@ -1,0 +1,10 @@
+/* Wrapper Styling */
+.wrapper{
+    display: block;
+    height: fit-content;
+    margin: 0 0;
+    padding: 20px 20px;
+    @include Medium{
+        padding: 20px 30px;
+    }
+}
