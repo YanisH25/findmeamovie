@@ -1,0 +1,30 @@
+/* Mixins Defining */
+
+/* Mixins Rules */
+
+/* Smartphone */
+@mixin Small{
+    @media only screen and (min-width: 321px){
+        @content
+    }
+}
+
+@mixin Medium{
+    @media only screen and (min-width: 768px){
+        @content
+    }
+}
+
+@mixin Large{
+    @media only screen and (min-width: 1224px){
+        @content
+    }
+}
+
+@mixin ExtraLarge{
+    @media only screen and (min-width: 1824px){
+        @content
+    }
+}
+
+
