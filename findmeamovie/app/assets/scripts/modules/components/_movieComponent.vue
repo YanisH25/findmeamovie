@@ -7,7 +7,7 @@
                     <p class="card__annotation">{{properties.rate}}/10</p>
                     <p class="card__annotation">{{properties.genres}}</p>
                 </div>
-                <img :src="posterPath" class="card__poster">
+                <img :src="properties.posterPath" class="card__poster">
             </div>
             <p class="card__resume">{{properties.resume}}</p>
         </div> 
