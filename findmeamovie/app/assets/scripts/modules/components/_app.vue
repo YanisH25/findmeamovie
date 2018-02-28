@@ -5,7 +5,7 @@
         <notfound-component v-if="status.notfound"></notfound-component>
         <error-component v-if="status.error"></error-component>
         <section class="grid" id="movies">
-        <movie-component v-for="movie in movies" :properties="movie" :key="movie.id"></movie-component>
+        <movie-component v-for="movie in movies" :id="movie" :key="movie"></movie-component>
         </section>
     </body>
 </template>
@@ -54,50 +54,50 @@ export default {
   methods:{
       /* Handles input submiting... */     
       inputCallback(value){
-          this.fetchMovies(value)
-          .then(movies=>{this.setMovies(movies);})
+          this.status.loader = true;
+          this.getMovies(value)
+          .then(movies=>{
+              if (movies.length === 0){
+                  this.status.notfound = true;
+              }else {
+                  this.setMovies(movies)
+                  this.status.notfound = false;
+                  this.status.error = false;
+              }
+              this.status.loader = false; 
+          })
           .catch(reason=>{
               /* Error handling... */
-          });;
+              this.status.error = true;
+          });
       },
       /* Sets the movies in the view */
       setMovies(movies){
           this.movies = movies;
       },
-      /* 
-      Formats movie object from API response
-
-      Returns : 
-
-          Object{
-              title: string,
-              rate: int,
-              genres: string,
-              posterPath: string,
-              resume: string
-          } 
-      */
-      formatMovie(movieFromResponse){
-         /* ... */
+      /* Takes the user query and makes all the process to return an array that contains the movies' id */
+      getMovies(query){
+          return this.fetchMovies(query)
+          .then(json=>this.getMoviesIds(json))
+          .catch(reason=>{
+              /* Error handling... */
+          })
       },
+
+      getMoviesIds(moviesArray){
+          return moviesArray.sort(config.movie.sort).map(element=>element.id);
+      },
+
       /* Fetchs the movies into the API */
       fetchMovies(query){
+          
           return this.movieResource.queryMovies(query)
-
-          /* Takes movies from response and formats it */
-
-          .then(response=>response.results.map(element=>this.formatMovie(element)))
+          .then(jsonObject=>jsonObject.results)
           .catch(reason=>{
               /* Error handling... */
           });
       }
   }  
 }     
-/* 
-    Remake formatMovie() with genres that work properly.
-    Make loader handling,
-    Make error handling,
-    Make notfound handling
-*/ 
 </script>
 

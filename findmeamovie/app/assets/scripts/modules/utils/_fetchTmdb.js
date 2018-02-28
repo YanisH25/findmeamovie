@@ -89,7 +89,23 @@ class TMDB {
 
             /* Filters the array to return only the requested genres */
 
-            .then(json=>resolve(json.genres.filter(genre=>genresIds.includes(genre.id))));
+            .then(json=>resolve(genresIds !== null || genres.Ids !== undefined ? json.genres.filter(genre=>genresIds.includes(genre.id)) : json.genres));
+        });
+    }
+
+    /* Method uses to fetch a movie by id */
+    /* Takes the movie's id (integer) and return an promise of movie object (see: https://developers.themoviedb.org/3/movies/get-movie-details) */
+
+    getMovie(movieId, params){
+        return new Promise((resolve, reject)=>{
+            Vue.http.get(`https://api.themoviedb.org/3/movie/${movieId}`, {
+                params:  {
+                    api_key: this.key,
+                    language: this.language,
+                    params
+                } 
+            })
+            .then(response=>resolve(response.json()), response=>reject(response.statusText));
         });
     }
 }
