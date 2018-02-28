@@ -68,6 +68,7 @@ export default {
           })
           .catch(reason=>{
               /* Error handling... */
+              this.status.loader = false;
               this.status.error = true;
           });
       },
