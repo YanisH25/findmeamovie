@@ -1,0 +1,50 @@
+/* Card Styling */
+
+/* Card Rules */
+.card{
+    border-radius: 30px;
+    background-color: #FAFAFA;
+    box-shadow: 0px 1px 1px rgba(136, 136, 136, 0.5);
+    &__wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    &__title{
+        color: #464646;
+        font-weight: 500;
+        font-size: 2.1rem;
+        margin: 0px 0px;
+    }
+    &__poster{
+        display: block;
+        background-color: #464646;
+        height: 180px;
+        width: auto;
+        margin-right: 30px;
+    }
+    &__tagline{
+        display: block;
+        color: #888888;
+        font-weight: 300;
+        font-size: 1.2rem;
+        margin: 0 0;
+        margin-bottom: 20px;
+    }
+    &__resume{
+        display: block;
+        font-weight: 300;
+        font-size: 0.9rem;
+    }
+    &__annotation{
+        display: block;
+        font-weight: 300;
+        font-size: 0.9rem;
+        margin-top: 4px;
+        &:last-child{
+            margin-bottom: 10px;
+        }
+    }
+}
