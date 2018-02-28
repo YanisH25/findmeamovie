@@ -89,7 +89,7 @@ class TMDB {
 
             /* Filters the array to return only the requested genres */
 
-            .then(json=>resolve(json.genres.filter(genre=>{return genresIds.includes(genre.id);})));
+            .then(json=>resolve(json.genres.filter(genre=>genresIds.includes(genre.id))));
         });
     }
 }

@@ -16,6 +16,7 @@
 
 <script>
 'use strict';
+
 export default {
   name: 'movie-component',
   props: ['properties'],

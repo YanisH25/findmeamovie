@@ -64,27 +64,21 @@ export default {
       setMovies(movies){
           this.movies = movies;
       },
-      /* Formats movie object from API response */
+      /* 
+      Formats movie object from API response
+
+      Returns : 
+
+          Object{
+              title: string,
+              rate: int,
+              genres: string,
+              posterPath: string,
+              resume: string
+          } 
+      */
       formatMovie(movieFromResponse){
-          let movie = {
-              title: movieFromResponse.title,
-              rate: movieFromResponse.vote_average,
-              genres: this.getGenres(movieFromResponse.genre_ids).then(genres =>{movie.genres = genres;}),
-              posterPath: movieFromResponse.poster_path !== null || undefined ? config.movie.posterPath.baseUrl + movieFromResponse.poster_path : '',
-              resume: movieFromResponse.overview
-          };
-          return movie;
-      },
-      /* Get the genres of the movie and format them */
-      getGenres(genresIds){
-          return this.movieResource.getGenres(genresIds)
-
-          /* Formats genres into a string */
-
-          .then(genresArray=>genresArray.length > 0 ? genresArray.reduce(config.movie.genres.formatter) : config.movie.genres.default)
-          .catch(reason=>{
-              /* Error handling... */
-          });
+         /* ... */
       },
       /* Fetchs the movies into the API */
       fetchMovies(query){
@@ -100,13 +94,7 @@ export default {
   }  
 }     
 /* 
-    Make genres format properly,
-    Handle undefined or null genres
-
-
-
-
-
+    Remake formatMovie() with genres that work properly.
     Make loader handling,
     Make error handling,
     Make notfound handling
